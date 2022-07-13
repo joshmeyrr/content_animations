@@ -1,0 +1,106 @@
+$box-shadow: 0px 0px 11px 3px rgba(246, 158, 123, 1);
+$box-shadow-shade: 7px 7px 14px #161922, -7px -7px 14px #5a638a;
+$box-shadow-shade-reverse: inset 7px 7px 14px #161922,
+	inset -7px -7px 14px #5a638a;
+$color-cta: #f69e7b;
+$color-primary: #eedad1;
+$color-secondary: #383e56;
+$color-instagram-heart: #fb3958;
+$transition-smooth: cubic-bezier(0.35, 0.01, 0, 10.2);
+
+// @for $i from 1 to 5 {
+// 	.card-item:nth-child(#{$i}) {
+// 		animation-delay: $i * 500ms;
+// 	}
+// }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+input {
+	border-radius: 1rem;
+	border: none;
+	caret-color: $color-primary;
+	font-size: 2rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	color: $color-primary;
+
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		font-size: 2rem;
+		font-weight: 900;
+		text-transform: uppercase;
+		// color: $color-primary;
+	}
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background-color: $color-secondary;
+	// background-color: $color-primary;
+}
+
+// a {
+// 	// text-decoration: none;
+// 	color: $color-cta;
+// 	text-transform: uppercase;
+// }
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	align-items: center;
+	justify-content: center;
+	color: #eedad1;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+.search {
+	height: 4rem;
+	width: 16rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	&__input {
+		height: 100%;
+		width: 100%;
+		padding: 0.5rem 1rem 0.5rem 4rem;
+		font-size: 2rem;
+		background-color: $color-secondary;
+		box-shadow: $box-shadow-shade-reverse;
+
+		&:focus {
+			box-shadow: $box-shadow-shade;
+			+ .search__icon {
+				color: $color-cta;
+			}
+		}
+	}
+	&__icon {
+		position: absolute;
+		width: 1rem;
+		height: auto;
+		justify-self: flex-start;
+		margin-left: 1rem;
+		transition: all 250ms ease-in-out;
+		color: #757575;
+	}
+}

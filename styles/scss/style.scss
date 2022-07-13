@@ -72,35 +72,3 @@ body {
 	font-weight: 600;
 	font-size: 2rem;
 }
-
-.search {
-	height: 4rem;
-	width: 16rem;
-	position: relative;
-	display: flex;
-	align-items: center;
-	&__input {
-		height: 100%;
-		width: 100%;
-		padding: 0.5rem 1rem 0.5rem 4rem;
-		font-size: 2rem;
-		background-color: $color-secondary;
-		box-shadow: $box-shadow-shade-reverse;
-
-		&:focus {
-			box-shadow: $box-shadow-shade;
-			+ .search__icon {
-				color: $color-cta;
-			}
-		}
-	}
-	&__icon {
-		position: absolute;
-		width: 1rem;
-		height: auto;
-		justify-self: flex-start;
-		margin-left: 1rem;
-		transition: all 250ms ease-in-out;
-		color: #757575;
-	}
-}

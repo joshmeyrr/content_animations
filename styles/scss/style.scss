@@ -8,6 +8,7 @@ $border-radius: 0.5rem;
 $color-cta: #f69e7b;
 $color-primary: #eedad1;
 $color-secondary: #383e56;
+$color-glass-reset: rgba(255, 255, 255, 0.15);
 $color-instagram-heart: #fb3958;
 $transition-smooth: cubic-bezier(0.35, 0.01, 0, 10.2);
 
@@ -125,7 +126,7 @@ body {
 	padding: 1rem;
 	width: 90%;
 	border-radius: 0.5rem;
-	background-color: rgba(255, 255, 255, 0.15);
+	background-color: $color-glass-reset;
 	backdrop-filter: blur(20px);
 	margin-top: 1rem;
 	box-shadow: $box-shadow-material;

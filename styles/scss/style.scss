@@ -4,13 +4,14 @@ $box-shadow-material: 0 14px 28px rgba(0, 0, 0, 0.25),
 $box-shadow-shade: 7px 7px 14px #161922, -7px -7px 14px #5a638a;
 $box-shadow-shade-reverse: inset 7px 7px 14px #161922,
 	inset -7px -7px 14px #5a638a;
-$border-radius: 0.5rem;
+$border-radius: 0.25rem;
 $color-cta: #f69e7b;
 $color-primary: #eedad1;
 $color-secondary: #383e56;
 $color-glass-reset: rgba(255, 255, 255, 0.15);
 $color-instagram-heart: #fb3958;
 $transition-smooth: cubic-bezier(0.35, 0.01, 0, 10.2);
+$font: brandon-grotesque, sans-serif;
 
 // @for $i from 1 to 5 {
 // 	.card-item:nth-child(#{$i}) {
@@ -42,6 +43,12 @@ input {
 		text-transform: uppercase;
 		// color: $color-primary;
 	}
+}
+
+i {
+	width: 0.5rem;
+	height: auto;
+	transition: all 0.5s ease-in-out;
 }
 
 h2 {
@@ -80,88 +87,58 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: #eedad1;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
+	font-family: $font;
+	font-weight: 900;
 	font-size: 2rem;
 }
 
 .card {
 	height: 30rem;
 	width: 25rem;
-	background-image: url(/images/image.png);
-	background-size: cover;
-	border-radius: 0.5rem;
-	transition: all 1s ease-in-out;
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	filter: grayscale(100%);
-	overflow: hidden;
-
+	flex-direction: column;
+	border-radius: $border-radius;
+	padding: 2rem;
+	background-color: $color-secondary;
+	box-shadow: $box-shadow-shade;
+	transition: all 0.5s ease-in-out;
+	&__media {
+		height: 40%;
+		width: 100%;
+		object-fit: cover;
+		border-radius: $border-radius;
+		filter: grayscale(100%);
+		transition: all 0.5s ease-in-out;
+	}
+	&__content {
+		color: gray;
+		margin-top: 1rem;
+		transition: all 0.5s ease-in-out;
+		font-size: 1.5rem;
+		ul {
+			margin-top: 1rem;
+			display: inline-block;
+			li {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+				letter-spacing: 0.1rem;
+			}
+		}
+	}
 	&:hover {
-		filter: none;
-		box-shadow: $box-shadow;
-		.card__badge {
-			transform: translateY(0);
+		.card {
+			&__media {
+				filter: grayscale(0);
+				box-shadow: $box-shadow;
+			}
+			&__content {
+				color: $color-primary;
 
-			&-stars {
-				li {
-					opacity: 1;
-					transform: translateX(0);
+				i {
+					color: $color-cta;
 				}
 			}
-		}
-	}
-}
-
-@for $i from 1 to 6 {
-	.card__badge-stars li:nth-child(#{$i}) {
-		transition-delay: $i * 200ms;
-	}
-}
-
-.card__badge {
-	color: $color-primary;
-	font-size: 1rem;
-	padding: 1rem;
-	width: 90%;
-	border-radius: 0.5rem;
-	background-color: $color-glass-reset;
-	backdrop-filter: blur(20px);
-	margin-top: 1rem;
-	box-shadow: $box-shadow-material;
-	transform: translateX(26rem);
-	transition: all 0.5s ease-in;
-
-	&-content {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-		margin-top: 0.5rem;
-		text-transform: uppercase;
-		font-weight: 900;
-		&-item {
-			display: flex;
-			align-items: center;
-			&-check {
-				color: $color-secondary;
-			}
-			&-description {
-				margin-left: 0.5rem;
-			}
-		}
-	}
-	&-stars {
-		display: flex;
-		margin-top: 0.5rem;
-		font-size: 2rem;
-		gap: 0.5rem;
-		color: $color-cta;
-
-		li {
-			transform: translateX(2rem);
-			opacity: 0;
-			transition: all 0.25s ease-in;
 		}
 	}
 }
